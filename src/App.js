@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import DroverSearch from './pages/DroverSearch';
 import './App.css';
 
 class App extends Component {
+  droverSearch = event => {
+    this.props.history.push('/drover-search')
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/" component={DroverSearch} />
+            <Route path="/drover-search" component={DroverSearch} />
+          </Switch>
+        </BrowserRouter>
+        
       </div>
     );
   }
